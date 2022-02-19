@@ -1,0 +1,9 @@
+{
+  "type": "bi_test:cooking",
+  "ingredient": {
+    "item": "minecraft:dirt"
+  },
+  "result": "minecraft:sand",
+  "experience": 0.0,
+  "cookingtime": 100
+}

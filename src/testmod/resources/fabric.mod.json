@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "bi_testmod",
+  "version": "${version}",
+
+  "name": "BookingIt TestMod",
+  "description": "This is an example description! Tell everyone what your mod is about!",
+  "authors": [
+    "aws404"
+  ],
+  "contact": {
+  },
+
+  "license": "CC0-1.0",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.aws404.booking_it_example.TestMod"
+    ],
+    "client": [
+      "com.github.aws404.booking_it_example.TestMod"
+    ],
+    "booking_it:recipe_book": [
+      "com.github.aws404.booking_it_example.TestModRecipeBookAdder"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.12.12",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17",
+    "booking_it": "*"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "bi_test:one_to_one",
+  "input": {
+    "item": "minecraft:sand"
+  },
+  "result": "minecraft:dirt"
+}

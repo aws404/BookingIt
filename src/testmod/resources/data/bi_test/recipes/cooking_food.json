@@ -1,0 +1,9 @@
+{
+  "type": "bi_test:cooking",
+  "ingredient": {
+    "item": "minecraft:stick"
+  },
+  "result": "minecraft:apple",
+  "experience": 0.0,
+  "cookingtime": 100
+}
