@@ -12,6 +12,7 @@
     "sources": "https://github.com/aws404/BookingIt"
   },
 
+  "icon": "assets/icon.png",
   "license": "CC0-1.0",
 
   "environment": "*",
