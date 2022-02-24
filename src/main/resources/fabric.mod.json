@@ -4,7 +4,7 @@
   "version": "${version}",
 
   "name": "Booking It",
-  "description": "A library for adding to the Minecraft recipe book.",
+  "description": "A library mod to scoot around the hardcoded and enum filled mess that is the recipe book! Add categories and groups with ease.",
   "authors": [
     "aws404"
   ],

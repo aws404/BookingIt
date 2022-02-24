@@ -71,6 +71,10 @@ public interface RecipeBookAdder {
          * @return the category options
          */
         public RecipeCategoryOptions build() {
+            if (this.groups.isEmpty()) {
+                throw new IllegalStateException(String.format("No categories defined for category %s, at least one must be supplied.", this.name));
+            }
+
             return new RecipeCategoryOptions(this.name, this.search, ImmutableList.copyOf(this.groups));
         }
     }
