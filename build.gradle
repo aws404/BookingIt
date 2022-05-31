@@ -1,14 +1,12 @@
 plugins {
-	id 'fabric-loom' version '0.11-SNAPSHOT'
-	id 'maven-publish'
+	id "fabric-loom" version "0.11-SNAPSHOT"
+	id "com.modrinth.minotaur" version "2.+"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
-archivesBaseName = project.archives_base_name
-version = project.mod_version
-group = project.maven_group
+version = System.getenv("VERSION") ? System.getenv("VERSION") : "unversioned"
 
 repositories {
 	maven { url = "https://jitpack.io" }
@@ -43,18 +41,31 @@ loom {
 			ideConfigGenerated project.rootProject == project
 			name = "Testmod Client"
 			source sourceSets.testmod
-			accessWidenerPath = file("src/testmod/resources/bi_test.accesswidener")
 		}
 		testmodServer {
 			server()
 			ideConfigGenerated project.rootProject == project
 			name = "Testmod Server"
 			source sourceSets.testmod
-			accessWidenerPath = file("src/testmod/resources/bi_test.accesswidener")
 		}
 	}
 
 	accessWidenerPath = file("src/main/resources/booking_it.accesswidener")
+	accessWidenerPath = file("src/testmod/resources/bi_test.accesswidener")
+}
+
+modrinth {
+	token = System.getenv("MODRINTH_TOKEN")
+	failSilently = true
+	projectId = project.project_id
+	versionNumber = version
+	versionName = System.getenv("VERSION_NAME") ? System.getenv("VERSION_NAME") : version
+	versionType = System.getenv("ALPHA") ? "alpha" : "release"
+	changelog = System.getenv("CAHNGELOG")
+	uploadFile = "./build/libs/BookingIt-${version}.jar"
+	dependencies {
+		required.project "P7dR8mSH" // Mark Fabric API as a required dependency
+	}
 }
 
 processResources {
@@ -80,22 +91,5 @@ java {
 jar {
 	from("LICENSE") {
 		rename { "${it}_${project.archivesBaseName}"}
-	}
-}
-
-// configure the maven publication
-publishing {
-	publications {
-		mavenJava(MavenPublication) {
-			from components.java
-		}
-	}
-
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
-	repositories {
-		// Add repositories to publish to here.
-		// Notice: This block does NOT have the same function as the block in the top level.
-		// The repositories here will be used for publishing your artifact, not for
-		// retrieving dependencies.
 	}
 }

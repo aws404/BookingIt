@@ -1,20 +1,23 @@
 package com.github.aws404.booking_it;
 
 import com.chocohead.mm.api.ClassTinkerers;
-import com.github.aws404.booking_it.mixin.RecipeBookGroupAccessor;
-import com.github.aws404.booking_it.mixin.RecipeBookOptionsAccessor;
 import com.google.common.collect.ImmutableMap;
 import com.mojang.datafixers.util.Pair;
+import org.jetbrains.annotations.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.github.aws404.booking_it.mixin.RecipeBookGroupAccessor;
+import com.github.aws404.booking_it.mixin.RecipeBookOptionsAccessor;
+
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.api.ModInitializer;
+
 import net.minecraft.client.recipebook.RecipeBookGroup;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.book.RecipeBookCategory;
-import org.jetbrains.annotations.Nullable;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Map;
@@ -102,7 +105,7 @@ public class BookingIt implements ModInitializer, ClientModInitializer {
 	@Environment(EnvType.CLIENT)
 	public static List<RecipeBookGroup> getGroupsForCategory(RecipeBookCategory category) {
 		if (!BookingIt.CATEGORY_TO_OPTIONS_MAP.containsKey(category)) {
-			throw  new IllegalArgumentException(category + " is not a registered custom category");
+			throw new IllegalArgumentException(category + " is not a registered custom category");
 		}
 		return BookingIt.CATEGORY_TO_OPTIONS_MAP.get(category).groups().stream().map(groupOptions -> ClassTinkerers.getEnum(RecipeBookGroup.class, groupOptions.name())).toList();
 	}

@@ -2,8 +2,10 @@ package com.github.aws404.booking_it;
 
 import com.chocohead.mm.api.ClassTinkerers;
 import com.chocohead.mm.api.EnumAdder;
+
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -13,7 +15,6 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EarlyRiser implements Runnable {
-
     public static List<RecipeBookAdder.RecipeCategoryOptions> ADDED_CATEGORIES = new ArrayList<>();
 
     @Override

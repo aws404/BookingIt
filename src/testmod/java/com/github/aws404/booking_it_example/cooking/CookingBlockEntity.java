@@ -6,7 +6,6 @@ import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.math.BlockPos;
 
 public class CookingBlockEntity extends AbstractFurnaceBlockEntity {
@@ -16,7 +15,7 @@ public class CookingBlockEntity extends AbstractFurnaceBlockEntity {
 
     @Override
     protected Text getContainerName() {
-        return new TranslatableText("conatiner.test");
+        return Text.translatable("conatiner.test");
     }
 
     @Override

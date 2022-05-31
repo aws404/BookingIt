@@ -83,7 +83,6 @@ public interface RecipeBookAdder {
     }
 
     class RecipeCategoryOptions {
-
         private final String name;
         private final RecipeGroupOptions searchGroup;
         private final List<RecipeGroupOptions> groups;

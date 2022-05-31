@@ -25,11 +25,12 @@
       "com.github.aws404.booking_it_example.TestModRecipeBookAdder"
     ]
   },
+  "accessWidener": "bi_test.accesswidener",
 
   "depends": {
     "fabricloader": ">=0.12.12",
     "fabric": "*",
-    "minecraft": "1.18.x",
+    "minecraft": "1.19.x",
     "java": ">=17",
     "booking_it": "*"
   }
