@@ -22,13 +22,14 @@ import net.minecraft.recipe.CookingRecipeSerializer;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.recipe.book.RecipeBookCategory;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,8 +42,8 @@ public class TestMod implements ModInitializer, ClientModInitializer {
 	public static final RecipeType<OneToOneRecipe> ONE_TO_ONE_RECIPE_TYPE = RecipeType.register("bi_test:one_to_one");
 	public static final RecipeSerializer<OneToOneRecipe> ONE_TO_ONE_RECIPE_SERIALISER = RecipeSerializer.register("bi_test:one_to_one", new OneToOneRecipe.Serialiser());
 
-	public static final Block TEST_COOKING_BLOCK = Registry.register(Registry.BLOCK, "bi_test:cooking", new CookingBlock(FabricBlockSettings.of(Material.METAL)));
-	public static final BlockEntityType<CookingBlockEntity> TEST_COOKING_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, "bi_test:cooking", FabricBlockEntityTypeBuilder.create(CookingBlockEntity::new, TEST_COOKING_BLOCK).build());
+	public static final Block TEST_COOKING_BLOCK = Registry.register(Registries.BLOCK, "bi_test:cooking", new CookingBlock(FabricBlockSettings.of(Material.METAL)));
+	public static final BlockEntityType<CookingBlockEntity> TEST_COOKING_BLOCK_ENTITY = Registry.register(Registries.BLOCK_ENTITY_TYPE, "bi_test:cooking", FabricBlockEntityTypeBuilder.create(CookingBlockEntity::new, TEST_COOKING_BLOCK).build());
 
 	public static final ScreenHandlerType<CookingScreenHandler> TEST_COOKING_SCREEN_HANDLER_TYPE = ScreenHandlerRegistry.registerSimple(new Identifier("bi_test", "cooking"), CookingScreenHandler::new);
 	public static final ScreenHandlerType<OneToOneCraftingScreenHandler> ONE_TO_ONE_CRAFTING_SCREEN_HANDLER_TYPE = ScreenHandlerRegistry.registerSimple(new Identifier("bi_test", "one_to_one"), OneToOneCraftingScreenHandler::new);
