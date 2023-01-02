@@ -135,6 +135,11 @@ public class OneToOneCraftingScreenHandler extends AbstractRecipeScreenHandler<C
         return itemStack;
     }
 
+    @Override
+    public ItemStack quickMove(PlayerEntity player, int slot) {
+        return null;
+    }
+
     public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
         return slot.inventory != this.result && super.canInsertIntoSlot(stack, slot);
     }

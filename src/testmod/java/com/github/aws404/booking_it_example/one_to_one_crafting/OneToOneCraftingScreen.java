@@ -60,7 +60,7 @@ public class OneToOneCraftingScreen extends HandledScreen<OneToOneCraftingScreen
     }
 
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
-        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int i = this.x;
@@ -96,7 +96,7 @@ public class OneToOneCraftingScreen extends HandledScreen<OneToOneCraftingScreen
     }
 
     public void removed() {
-        this.recipeBook.close();
+        this.recipeBook.toggleOpen();
         super.removed();
     }
 

@@ -7,8 +7,8 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.MappingResolver;
 
 import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -65,6 +65,6 @@ public class EarlyRiser implements Runnable {
     }
 
     private static void addToEnumBuilder(EnumAdder adder, RecipeBookAdder.RecipeGroupOptions groupOptions) {
-        adder.addEnum(groupOptions.name().toUpperCase(), () -> new Object[]{Arrays.stream(groupOptions.icons()).map(s -> Registry.ITEM.getOrEmpty(new Identifier(s)).orElseThrow(() -> new IllegalArgumentException(String.format("icon should be an item but found '%s' for group %s", s, groupOptions.name())))).map(ItemStack::new).toArray(ItemStack[]::new)});
+        adder.addEnum(groupOptions.name().toUpperCase(), () -> new Object[]{Arrays.stream(groupOptions.icons()).map(s -> Registries.ITEM.getOrEmpty(new Identifier(s)).orElseThrow(() -> new IllegalArgumentException(String.format("icon should be an item but found '%s' for group %s", s, groupOptions.name())))).map(ItemStack::new).toArray(ItemStack[]::new)});
     }
 }
